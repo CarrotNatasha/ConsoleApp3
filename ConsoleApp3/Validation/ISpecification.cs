@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Validation
 {
+    /* public interface ISpecification2<T>
+    {
+        void Validate(T value1, T value2);
+    } */
     public interface ISpecification<T>
     {
         void Validate(T value);
@@ -19,10 +23,10 @@ namespace ConsoleApp3.Validation
             spec1 = s1;
             spec2 = s2;
         }
-        public void Validate(T value)
+        public void Validate(T tValue)
         {
-            spec1.Validate(value);
-            spec2.Validate(value);
+            spec1.Validate(tValue);
+            spec2.Validate(tValue);
         }
     }
 }

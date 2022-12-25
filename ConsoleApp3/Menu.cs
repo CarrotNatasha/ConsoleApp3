@@ -24,7 +24,7 @@ namespace ConsoleApp3
         public static void Execute()
         {
             ShowMenu();
-            int iMenu = SafeRead.SafeReadInt(null,null);
+            int iMenu = SafeRead.SafeReadInt(null);
             if (iMenu >= 0 && iMenu < Menu.MenuF.Count)
             {
                 Menu.MenuF.ToArray()[iMenu].Execute();
@@ -39,11 +39,11 @@ namespace ConsoleApp3
             Console.WriteLine("==========MAIN MENU==========");
 
             int iMenuItem = 0;
-            foreach(MenuCore menuF in Menu.MenuF)
+            foreach (MenuCore menuF in Menu.MenuF)
             {
-                Console.WriteLine("[{0}] {1}",iMenuItem++,menuF.Title);
+                Console.WriteLine("[{0}] {1}", iMenuItem++, menuF.Title);
             }
+            Console.WriteLine("_____________________________\n");
         }
-
     }
 }

@@ -49,46 +49,28 @@ namespace ConsoleApp3.MenuF.MenuLab3
 
         public static void RegexTest(string sStr)
         {
-            int iCheck = 0;
+            bool iCheck = true;
             try
             {
                 string sExpression = @"[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+";
                 if (Regex.IsMatch(sStr, sExpression, RegexOptions.IgnoreCase))
                 {
-                    Console.Write(sStr);
-                    Console.WriteLine(" is an e-mail");
-                    iCheck++;
-                }
-                else
-                {
-                    Console.Write(sStr);
-                    Console.WriteLine(" is not an e-mail");
+                    Console.WriteLine("{0} is an e-mail", sStr);
+                    iCheck = false;
                 }
                 sExpression = @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$";
                 if (Regex.IsMatch(sStr, sExpression, RegexOptions.IgnoreCase))
                 {
-                    Console.Write(sStr);
-                    Console.WriteLine(" is a phone number");
-                    iCheck++;
-                }
-                else
-                {
-                    Console.Write(sStr);
-                    Console.WriteLine(" is not a phone number");
+                    Console.WriteLine("{0} is a phone number", sStr);
+                    iCheck = false;
                 }
                 sExpression = @"(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}";
                 if (Regex.IsMatch(sStr, sExpression, RegexOptions.IgnoreCase))
                 {
-                    Console.Write(sStr);
-                    Console.WriteLine(" is an IP address\n");
-                    iCheck++;
+                    Console.WriteLine("{0} is an IP address\n", sStr);
+                    iCheck = false;
                 }
-                else
-                {
-                    Console.Write(sStr);
-                    Console.WriteLine(" is not an IP address");
-                }
-                if (iCheck == 0)
+                if (iCheck == true)
                 {
                     throw new Exception("It's not an e-mail, a phone number or an IP address\n\n");
                 }

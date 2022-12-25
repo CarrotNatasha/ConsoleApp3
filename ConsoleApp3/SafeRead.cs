@@ -9,7 +9,7 @@ namespace ConsoleApp3
 {
     public static class SafeRead
     {
-        public static int SafeReadInt(string message, ISpecification<int> specification)
+        public static int SafeReadInt(string message, ISpecification<int> Specification = null)
         {
             if (!string.IsNullOrEmpty(message))
             {
@@ -23,15 +23,15 @@ namespace ConsoleApp3
                 {
                     try
                     {
-                        if (specification != null)
+                        if (Specification != null)
                         {
-                            specification.Validate(iValue);
+                            Specification.Validate(iValue);
                         }
                         return iValue;
                     }
                     catch(ValidationException eIntExcept)
                     {
-                        Console.WriteLine("ERROR: " + eIntExcept);
+                        Console.WriteLine("ERROR: " + eIntExcept.Message);
                     }
                 }
                 else
@@ -41,7 +41,7 @@ namespace ConsoleApp3
                 
             }
         }
-        public static DateTime SafeDate(string message, ISpecification<DateTime> specification)
+        public static DateTime SafeDate(string message, ISpecification<DateTime> Specification = null)
         {
             if (!string.IsNullOrEmpty(message))
             {
@@ -55,15 +55,15 @@ namespace ConsoleApp3
                 {
                     try
                     {
-                        if (specification != null)
+                        if (Specification != null)
                         {
-                            specification.Validate(dtDate);
+                            Specification.Validate(dtDate);
                         }
                         return dtDate;
                     }
                     catch (ValidationException eDateTimeExcept)
                     {
-                        Console.WriteLine("ERROR: " + eDateTimeExcept);
+                        Console.WriteLine("ERROR: " + eDateTimeExcept.Message);
                     }
                 }
                 else

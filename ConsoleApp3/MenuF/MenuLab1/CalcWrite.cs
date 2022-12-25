@@ -13,15 +13,15 @@ namespace ConsoleApp3.MenuF
         public override void Execute()
         {
             //Z / X + 7 * sqrt(Y)
-            double dX=0, dY=0, dZ;
+            double dX = 0, dY = 0, dZ = 0;
             Console.WriteLine("Write down X");
-            dX = MeniuLab1.CalcCalc.XWrite(dX);
+            dX = MenuLab1.CalcRead.XWrite(dX);
             Console.WriteLine("Write down Y");
-            dY = MeniuLab1.CalcCalc.YWrite(dY);
+            dY = MenuLab1.CalcRead.YWrite(dY);
             Console.WriteLine("Write down Z");
-            dZ = SafeRead.SafeReadInt(null,null);
-            double dXYZCalc = Math.Floor((dZ / dX + 7 * Math.Sqrt(dY))*1000)/1000;
-            Console.WriteLine(dXYZCalc);
+            dZ = MenuLab1.CalcRead.ZWrite(dZ);
+            double dXYZ = MenuLab1.CalcCalc.XYZCalc(dX, dY, dZ);
+            Console.WriteLine(dXYZ);
         }
     }
 }

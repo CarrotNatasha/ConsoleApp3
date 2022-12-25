@@ -8,11 +8,11 @@ namespace ConsoleApp3.Validation
 {
     public class IsNotZero : ISpecification<int>
     {
-        public void Validate(int value)
+        public void Validate(int iValue)
         {
-            if (value == 0)
+            if (iValue == 0)
             {
-                throw new ValidationException(string.Format("Value {0} is null",value));
+                throw new ValidationException(string.Format("Value {0} must not be zero", iValue));
             }
         }
     }

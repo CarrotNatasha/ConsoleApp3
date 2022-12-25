@@ -14,10 +14,11 @@ namespace ConsoleApp3.MenuF
         public override void Execute()
         {
             string sStr1, sStr2;
+
             Console.WriteLine("Write down first sentence");
-            sStr1 = Console.ReadLine();
+            sStr1 = MenuLab3.StringRead.Write();
             Console.WriteLine("Write down second sentence");
-            sStr2 = Console.ReadLine();
+            sStr2 = MenuLab3.StringRead.Write();
 
             Console.WriteLine("\nFirst test:");
             MenuLab3.StringCalc.WriteDown(sStr1, sStr2);
