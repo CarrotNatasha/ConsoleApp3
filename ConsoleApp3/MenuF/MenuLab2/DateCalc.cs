@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3.MenuF.RecursionDate
+namespace ConsoleApp3.MenuF.MenuLab2
 {
-    public static class RecursionCalc
+    public static class DateCalc
     {
         public static uint RecursionAkermann(uint uiM, uint uiN)
         {

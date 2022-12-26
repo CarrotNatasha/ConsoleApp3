@@ -14,6 +14,7 @@ namespace ConsoleApp3.MenuF.MenuLab1
             dX = SafeRead.SafeReadInt("", new IsNotZero());
             return dX;
         }
+
         public static double YWrite(double dY)
         {
             dY = SafeRead.SafeReadInt("", new IsMoreThanZero());

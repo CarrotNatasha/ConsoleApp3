@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Validation
 {
-    /* public interface ISpecification2<T>
-    {
-        void Validate(T value1, T value2);
-    } */
     public interface ISpecification<T>
     {
         void Validate(T value);
     }
+    /* public class ISpecNotInterface<T> : ISpecification<T>
+    {
+        public void Validate(T tValue)
+        {
+            int iValue = 0;
+            if (Int32.TryParse(tValue, out iValue)
+            {
+
+            }
+        }
+    } */
 
     public class AndSpecification<T> : ISpecification<T>
     {

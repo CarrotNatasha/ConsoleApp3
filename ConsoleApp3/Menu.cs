@@ -11,6 +11,14 @@ namespace ConsoleApp3
     {
         private static List<MenuCore> MenuF = new List<MenuCore>();
 
+        public static int ItemsCount
+        {
+            get
+            {
+                return MenuF.Count();
+            }
+        }
+
         public static void Clear()
         {
             Menu.MenuF.Clear();
@@ -34,7 +42,8 @@ namespace ConsoleApp3
                 Console.WriteLine("Wrong number! Please, try again");
             }
         }
-        private static void ShowMenu()
+
+        public static void ShowMenu()
         {
             Console.WriteLine("==========MAIN MENU==========");
 

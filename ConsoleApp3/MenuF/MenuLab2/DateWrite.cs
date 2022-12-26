@@ -26,9 +26,9 @@ namespace ConsoleApp3.MenuF
             dtRecDateStart2 = MenuLab2.DateRead.WriteLater(dtRecDateEnd1);
             Console.WriteLine("Write down end of the second date");
             dtRecDateEnd2 = MenuLab2.DateRead.WriteEarlier(dtRecDateStart2);
-            uiM = RecursionDate.RecursionCalc.DateWriteiM(dtRecDateStart1, dtRecDateEnd1, dtRecDateStart2, dtRecDateEnd2);
+            uiM = MenuLab2.DateCalc.DateWriteiM(dtRecDateStart1, dtRecDateEnd1, dtRecDateStart2, dtRecDateEnd2);
             Console.Write("The result: ");
-            Console.WriteLine(RecursionDate.RecursionCalc.RecursionAkermann(uiM, uiN));
+            Console.WriteLine(MenuLab2.DateCalc.RecursionAkermann(uiM, uiN));
         }
     }
 }

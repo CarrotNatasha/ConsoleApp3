@@ -7,7 +7,7 @@ using ConsoleApp3.Validation;
 
 namespace ConsoleApp3
 {
-    public static class SafeRead
+    public class SafeRead
     {
         public static int SafeReadInt(string message, ISpecification<int> Specification = null)
         {
@@ -41,6 +41,7 @@ namespace ConsoleApp3
                 
             }
         }
+
         public static DateTime SafeDate(string message, ISpecification<DateTime> Specification = null)
         {
             if (!string.IsNullOrEmpty(message))
