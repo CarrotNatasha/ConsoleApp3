@@ -12,6 +12,8 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
+            SafeRead.SetExtValues(ArgsParser.Parse(args));
+
             Menu.Clear();
             Menu.AddItem(new MenuF.MenuExit());
             Menu.AddItem(new MenuF.MenuHelloWorld());

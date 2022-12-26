@@ -11,19 +11,19 @@ namespace ConsoleApp3.MenuF.MenuLab1
     {
         public static double XWrite(double dX)
         {
-            dX = SafeRead.SafeReadInt("", new IsNotZero());
+            dX = SafeRead.SafeReadInt("x", "", new IsNotZero());
             return dX;
         }
 
         public static double YWrite(double dY)
         {
-            dY = SafeRead.SafeReadInt("", new IsMoreThanZero());
+            dY = SafeRead.SafeReadInt("y", "", new IsMoreThanZero());
             return dY;
         }
 
         public static double ZWrite(double dZ)
         {
-            dZ = SafeRead.SafeReadInt(null);
+            dZ = SafeRead.SafeReadInt("z", null);
             return dZ;
         }
     }

@@ -7,71 +7,98 @@ using ConsoleApp3.Validation;
 
 namespace ConsoleApp3
 {
-    public class SafeRead
+
+    public static class SafeRead
     {
-        public static int SafeReadInt(string message, ISpecification<int> Specification = null)
+        private static string GetValue(string paramName, string message)
         {
-            if (!string.IsNullOrEmpty(message))
+            string sValue = null;
+            if (ExternalValues == null)
+            {
+                sValue = Console.ReadLine();
+            }
+            else
+            {
+                if (!ExternalValues.TryGetValue(paramName, out sValue))
+                {
+                    throw new InvalidOperationException(string.Format("Parameter -{0} not specify.", paramName));
+                }
+            }
+            return sValue;
+        }
+
+        private static IDictionary<string, string> ExternalValues = null;
+
+        public static void SetExtValues(IDictionary<string, string> values)
+        {
+            ExternalValues = values;
+        }
+
+        public static int SafeReadInt(string paramName, string message, ISpecification<int> Specification = null)
+        {
+            if (ExternalValues == null && !string.IsNullOrEmpty(message))
             {
                 Console.WriteLine(message);
             }
             while (true)
             {
-                string sValue = Console.ReadLine();
-                int iValue = 0;
-                if (Int32.TryParse(sValue, out iValue))
+                string sValue = GetValue(paramName, message);
+
+                try
                 {
-                    try
+                    int iValue = Int32.Parse(sValue);
+                    if (Specification != null)
                     {
-                        if (Specification != null)
-                        {
-                            Specification.Validate(iValue);
-                        }
-                        return iValue;
+                        Specification.Validate(iValue);
                     }
-                    catch(ValidationException eIntExcept)
+                    return iValue;
+                }
+                catch (Exception eIntExcept)
+                {
+                    if ((eIntExcept is ValidationException) ||
+                        (eIntExcept is FormatException) ||
+                        (eIntExcept is OverflowException))
                     {
                         Console.WriteLine("ERROR: " + eIntExcept.Message);
+                        if (ExternalValues != null)
+                        {
+                            throw new InvalidOperationException(eIntExcept.Message);
+                        }
                     }
+                    throw eIntExcept;
                 }
-                else
-                {
-                    Console.WriteLine("ERROR: Impossible number. Try Again\n");
-                }
-                
             }
         }
 
-        public static DateTime SafeDate(string message, ISpecification<DateTime> Specification = null)
+        public static DateTime SafeDate(string paramName, string message, ISpecification<DateTime> Specification = null)
         {
-            if (!string.IsNullOrEmpty(message))
+            if (ExternalValues == null && !string.IsNullOrEmpty(message))
             {
                 Console.WriteLine(message);
             }
+
             while (true)
             {
-                string sValue = Console.ReadLine();
-                DateTime dtDate;
-                if (DateTime.TryParseExact(sValue, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dtDate))
-                {
-                    try
+                string sValue = GetValue(paramName, message);
+                try {
+                    DateTime dtDate = DateTime.ParseExact(sValue, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None);
+                    if (Specification != null)
                     {
-                        if (Specification != null)
-                        {
-                            Specification.Validate(dtDate);
-                        }
-                        return dtDate;
+                        Specification.Validate(dtDate);
                     }
-                    catch (ValidationException eDateTimeExcept)
-                    {
-                        Console.WriteLine("ERROR: " + eDateTimeExcept.Message);
-                    }
+                    return dtDate;
                 }
-                else
+                catch (FormatException eDateException)
                 {
-                    Console.WriteLine("ERROR: Impossible date. Try again\n");
+                    Console.WriteLine("ERROR: " + eDateException.Message);
+                    if (ExternalValues != null)
+                    {
+                        throw new InvalidOperationException(eDateException.Message);
+                    }
                 }
             }
         }
     }
 }
+
+

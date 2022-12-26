@@ -12,17 +12,17 @@ namespace ConsoleApp3.MenuF.MenuLab2
     {
         public static DateTime Write()
         {
-            DateTime dtDate = SafeRead.SafeDate(null);
+            DateTime dtDate = SafeRead.SafeDate("d1st","",null);
             return dtDate;
         }
-        public static DateTime WriteEarlier(DateTime dtDate1)
+        public static DateTime WriteEarlier(string sIden, DateTime dtDate1)
         {
-            DateTime dtDate2 = SafeRead.SafeDate("", new IsEarlierDate(dtDate1));
+            DateTime dtDate2 = SafeRead.SafeDate(sIden,"", new IsEarlierDate(dtDate1));
             return dtDate2;
         }
         public static DateTime WriteLater(DateTime dtDate2)
         {
-            DateTime dtDate1 = SafeRead.SafeDate("", new IsLaterDate(dtDate2));
+            DateTime dtDate1 = SafeRead.SafeDate("d2nd","", new IsLaterDate(dtDate2));
             return dtDate1;
         }
     }

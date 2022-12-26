@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArgsParser.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuF\MenuLab1\CalcRead.cs" />
     <Compile Include="MenuF\MenuLab2\DateRead.cs" />

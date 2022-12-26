@@ -76,7 +76,7 @@ namespace ConsoleApp3.MenuF.MenuLab3
                 }
                 if (iCheck == 0)
                 {
-                    throw new Exception("It's not an e-mail, a phone number or an IP address\n\n");
+                    throw new Exception(string.Format("{0} not an e-mail, a phone number or an IP address\n\n",sStr));
                 }
                 return iCheck;
             }

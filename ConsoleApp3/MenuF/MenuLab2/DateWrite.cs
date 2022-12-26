@@ -21,11 +21,11 @@ namespace ConsoleApp3.MenuF
             Console.WriteLine("Write down start of the first date");
             dtRecDateStart1 = MenuLab2.DateRead.Write();
             Console.WriteLine("Write down end of the first date");
-            dtRecDateEnd1 = MenuLab2.DateRead.WriteEarlier(dtRecDateStart1);
+            dtRecDateEnd1 = MenuLab2.DateRead.WriteEarlier("d1end",dtRecDateStart1);
             Console.WriteLine("Write down start of the second date");
             dtRecDateStart2 = MenuLab2.DateRead.WriteLater(dtRecDateEnd1);
             Console.WriteLine("Write down end of the second date");
-            dtRecDateEnd2 = MenuLab2.DateRead.WriteEarlier(dtRecDateStart2);
+            dtRecDateEnd2 = MenuLab2.DateRead.WriteEarlier("d2end",dtRecDateStart2);
             uiM = MenuLab2.DateCalc.DateWriteiM(dtRecDateStart1, dtRecDateEnd1, dtRecDateStart2, dtRecDateEnd2);
             Console.Write("The result: ");
             Console.WriteLine(MenuLab2.DateCalc.RecursionAkermann(uiM, uiN));
