@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp3.Validation;
-using ConsoleApp3.Validation.ForDate;
 
 namespace ConsoleApp3.MenuF
 {
@@ -23,7 +22,7 @@ namespace ConsoleApp3.MenuF
             Console.WriteLine("Write down end of the first date");
             dtRecDateEnd1 = MenuLab2.DateRead.WriteEarlier("d1end",dtRecDateStart1);
             Console.WriteLine("Write down start of the second date");
-            dtRecDateStart2 = MenuLab2.DateRead.WriteLater(dtRecDateEnd1);
+            dtRecDateStart2 = MenuLab2.DateRead.Write();
             Console.WriteLine("Write down end of the second date");
             dtRecDateEnd2 = MenuLab2.DateRead.WriteEarlier("d2end",dtRecDateStart2);
             uiM = MenuLab2.DateCalc.DateWriteiM(dtRecDateStart1, dtRecDateEnd1, dtRecDateStart2, dtRecDateEnd2);

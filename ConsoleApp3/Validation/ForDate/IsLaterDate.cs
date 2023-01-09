@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3.Validation.ForDate
+/* namespace ConsoleApp3.Validation.ForDate
 {
     public class IsLaterDate : ISpecification<DateTime>
     {
@@ -23,4 +23,4 @@ namespace ConsoleApp3.Validation.ForDate
             }
         }
     }
-}
+} */

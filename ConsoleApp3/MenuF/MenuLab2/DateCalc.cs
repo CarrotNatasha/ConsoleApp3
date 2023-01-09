@@ -37,35 +37,38 @@ namespace ConsoleApp3.MenuF.MenuLab2
         {
 
             uint uiM = 0;
-            /* if (dtDateStart1 < dtDateStart2)
-            { */
-            if (dtDateEnd1 < dtDateStart2)
+            if (dtDateStart2 < dtDateStart1)
             {
-                throw new Exception("Second date should start earlier than first ends");
+                (dtDateStart1, dtDateStart2) = (dtDateStart2, dtDateStart1);
+                (dtDateEnd1, dtDateEnd2) = (dtDateEnd2, dtDateEnd1);
             }
-            else
+
+            if (dtDateEnd1 < dtDateStart2 || dtDateEnd2 < dtDateStart1)
+            {
+                uiM = 0;
+                Console.WriteLine("N = {0}", uiM);
+                return uiM;
+            }
+            else if (dtDateEnd1 < dtDateEnd2)
             {
                 while (dtDateStart2 <= dtDateEnd1)
                 {
                     uiM++;
                     dtDateStart2 = dtDateStart2.AddDays(1);
                 }
+                Console.WriteLine("N = {0}", uiM);
+                return uiM;
             }
-                /*else
+            else
             {
-                /* if (dtDateEnd2 < dtDateStart1)
-                {
-                    throw new Exception("First date should end later than first starts");
-                }
-                else
-                { 
-                while (dtDateStart1 <= dtDateEnd2)
+                while (dtDateStart2 <= dtDateEnd2)
                 {
                     uiM++;
-                    dtDateStart1 = dtDateStart1.AddDays(1);
+                    dtDateStart2 = dtDateStart2.AddDays(1);
                 }
-            } */
-            return uiM;
+                Console.WriteLine("N = {0}", uiM);
+                return uiM;
+            }
         }
     }
 }

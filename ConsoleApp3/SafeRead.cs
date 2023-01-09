@@ -65,7 +65,10 @@ namespace ConsoleApp3
                             throw new InvalidOperationException(eIntExcept.Message);
                         }
                     }
-                    throw eIntExcept;
+                    else
+                    {
+                        throw eIntExcept;
+                    }
                 }
             }
         }

@@ -1,5 +1,4 @@
 ﻿using ConsoleApp3.Validation;
-using ConsoleApp3.Validation.ForDate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +18,6 @@ namespace ConsoleApp3.MenuF.MenuLab2
         {
             DateTime dtDate2 = SafeRead.SafeDate(sIden,"", new IsEarlierDate(dtDate1));
             return dtDate2;
-        }
-        public static DateTime WriteLater(DateTime dtDate2)
-        {
-            DateTime dtDate1 = SafeRead.SafeDate("d2nd","", new IsLaterDate(dtDate2));
-            return dtDate1;
         }
     }
 }
