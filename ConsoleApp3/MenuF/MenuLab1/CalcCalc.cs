@@ -11,7 +11,7 @@ namespace ConsoleApp3.MenuF.MenuLab1
     {
         public static double XYZCalc(double dX, double dY, double dZ)
         {
-            double dXYZ = Math.Floor((dZ / dX + 7 * Math.Sqrt(dY)) * 1000) / 1000;
+            double dXYZ = (dZ / dX) + (7 * Math.Sqrt(dY));
             return dXYZ;
         }
     }

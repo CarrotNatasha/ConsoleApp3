@@ -21,7 +21,8 @@ namespace ConsoleApp3.MenuF
             Console.WriteLine("Write down Z");
             dZ = MenuLab1.CalcRead.ZWrite(dZ);
             double dXYZ = MenuLab1.CalcCalc.XYZCalc(dX, dY, dZ);
-            Console.WriteLine(dXYZ);
+            string sResult = dXYZ.ToString("#.###");
+            Console.WriteLine("The result = {0}", sResult);
         }
     }
 }

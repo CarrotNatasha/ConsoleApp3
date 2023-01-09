@@ -8,23 +8,23 @@ namespace ConsoleApp3.MenuF.MenuLab2
 {
     public static class DateCalc
     {
-        public static uint RecursionAkermann(uint uiM, uint uiN)
+        public static uint RecursionAkermann(uint uiN, uint uiM)
         {
             if (uiM < 62)
             {
-                if (uiM == 0)
+                if (uiN == 0)
                 {
-                    return uiN + 1;
+                    return uiM + 1;
                 }
                 else
                 {
-                    if (uiM != 0 && uiN == 0)
+                    if (uiN != 0 && uiM == 0)
                     {
-                        return RecursionAkermann(uiM - 1, uiN);
+                        return RecursionAkermann(uiN - 1, uiM);
                     }
                     else
                     {
-                        return RecursionAkermann(uiM - 1, RecursionAkermann(uiM, uiN - 1));
+                        return RecursionAkermann(uiN - 1, RecursionAkermann(uiN, uiM - 1));
                     }
                 }
             }

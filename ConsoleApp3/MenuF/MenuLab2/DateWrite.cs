@@ -13,7 +13,7 @@ namespace ConsoleApp3.MenuF
 
         public override void Execute()
         {
-            uint uiM = 0;
+            uint uiM;
             uint uiN = 5;
             Console.WriteLine("Date format is (DD.MM.YYYY)\nMax - 62 days\nEarlier timespan goes first");
             DateTime dtRecDateStart1, dtRecDateEnd1, dtRecDateStart2, dtRecDateEnd2;
@@ -27,7 +27,7 @@ namespace ConsoleApp3.MenuF
             dtRecDateEnd2 = MenuLab2.DateRead.WriteEarlier("d2end",dtRecDateStart2);
             uiM = MenuLab2.DateCalc.DateWriteiM(dtRecDateStart1, dtRecDateEnd1, dtRecDateStart2, dtRecDateEnd2);
             Console.Write("The result: ");
-            Console.WriteLine(MenuLab2.DateCalc.RecursionAkermann(uiM, uiN));
+            Console.WriteLine(MenuLab2.DateCalc.RecursionAkermann(uiN, uiM));
         }
     }
 }
