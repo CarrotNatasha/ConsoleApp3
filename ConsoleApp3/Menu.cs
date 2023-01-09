@@ -31,7 +31,6 @@ namespace ConsoleApp3
 
         public static void Execute()
         {
-            ShowMenu();
             int iMenu = SafeRead.SafeReadInt("mi", null);
             if (iMenu >= 0 && iMenu < Menu.MenuF.Count)
             {

@@ -12,7 +12,8 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            SafeRead.SetExtValues(ArgsParser.Parse(args));
+            IDictionary<string, string> argsDic = ArgsParser.Parse(args);
+            SafeRead.SetExtValues(argsDic);
 
             Menu.Clear();
             Menu.AddItem(new MenuF.MenuExit());
@@ -20,11 +21,29 @@ namespace ConsoleApp3
             Menu.AddItem(new MenuF.MenuLab1Calc());
             Menu.AddItem(new MenuF.MenuLab2RecursionDate());
             Menu.AddItem(new MenuF.MenuLab3String());
-            while (true)
+
+            if (argsDic != null)
             {
-                Console.Clear();
-                Menu.Execute();
-                Console.ReadLine();
+                try
+                {
+                    Console.Clear();
+                    Menu.Execute();
+                    Console.ReadLine();
+                }
+                catch (InvalidOperationException eException)
+                {
+                    /* Console.WriteLine("ERROR: " + eException.Message);*/
+                }
+            }
+            else
+            {
+                while (true)
+                {
+                    Console.Clear();
+                    Menu.ShowMenu();
+                    Menu.Execute();
+                    Console.ReadLine();
+                }
             }
         }
     }
